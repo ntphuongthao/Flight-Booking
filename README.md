@@ -1,24 +1,5 @@
-# README
+# FLIGHT BOOKER PROJECT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project will replicate a one-way flight booker, allowing users to browse their flight with origin, destination, date & time, and the number of tickets.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After you have paid for the tickets successfully, the final booking confirmation will pe printed out.
