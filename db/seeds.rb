@@ -35,12 +35,12 @@ ActiveRecord::Base.transaction do
   airports[9] = Airport.create!(name: 'Ca Mau', code: 'CAH')
 
 
-  Date.new(2022, 7, 1).upto(Date.new(2022, 9, 1)).each do |date|
+  Date.new(2022, 7, 1).upto(Date.new(2022, 9, 30)).each do |date|
     airports.each do |departure|
       airports.each do |arrival|
         next if departure == arrival
 
-        3.times { Flight.create!(date: date,
+        10.times { Flight.create!(date: date,
                                 time: random_time,
                                 departure: departure,
                                 arrival: arrival,

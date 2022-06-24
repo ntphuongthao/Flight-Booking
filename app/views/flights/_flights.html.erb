@@ -6,21 +6,25 @@
             <thead class="thead-dark">
             <tr>
                 <th>Flight Number</th>
-                <th>Departure Airport ID</th>
-                <th>Arrival Airport ID</th>
+                <th>Departure Airport</th>
+                <th>Arrival Airport</th>
                 <th>Date</th>
+                <th>Time</th>
                 <th>Duration (minutes)</th>
+                <th>Reservation</th>
             </tr>
             </thead>
 
             <tbody>
                 <% flights.each do |flight| %>
                     <tr>
-                        <td><%= flight.id %></td>
-                        <td><%= flight.departure_id %></td>
-                        <td><%= flight.arrival_id %></td>
-                        <td><%= flight.date %></td>
+                        <td>#<%= flight.id %></td>
+                        <td><%= flight.departure.name %></td>
+                        <td><%= flight.arrival.name %></td>
+                        <td><%= flight.date.strftime("%d-%m-%Y")  %></td>
+                        <td><%= flight.time %></td>
                         <td><%= flight.duration %></td>
+                        <td></td>
                     </tr>
                 <% end %>
             </tbody>

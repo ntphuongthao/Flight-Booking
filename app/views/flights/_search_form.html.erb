@@ -1,5 +1,6 @@
 
 <h1>Search for flights</h1>
+<h6>There are only flights from July 2022 to September 2022 available right now!</h6>
 
 <%= form_with model: Flight.new, url: flights_path, method: 'get' do |form| %>
   <% @airports = Airport.pluck(:name, :id) %>
