@@ -1,0 +1,53 @@
+<div class="container w-75">
+  <div class="row justify-content-center">
+        <div class="col-10">
+            <% @flight = Flight.where(id: params[:flight_id].to_i) %>
+            <% @booking = Booking.where(flight_id: params[:flight_id].to_i) %>
+            <% confirmation = generate_confirmation_code %>
+
+            <h3>Your Confirmation Code: #<%= confirmation %></h3>
+            <%= render 'flights/flight', flights: @flight %>
+
+            <h4>Passengers Details...</h4>
+            <br>
+            <div class="container w-75">
+                <div class="row justify-content-center">
+                    <%= form_with model: Booking.new do |form| %>
+                        <%= form.hidden_field :flight_id, value: params[:flight_id].to_i %>
+                        
+                        <% params[:passengers].to_i.times do |time| %>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">#<%= time + 1 %> Passenger:</h5>
+                                <%= form.fields_for :passengers do |passengers_form| %>
+                                    <%= passengers_form.hidden_field :id, value: nil %>
+                                    <div>
+                                        <div class="form-group">
+                                            <%= passengers_form.text_field :name, placeholder: 'Passenger Name', class: 'form-control' %>
+                                        </div>
+                                        <div class="form-group">
+                                            <%= passengers_form.text_field :email, placeholder: 'Passenger Email', class: 'form-control' %>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                            <br>
+                        <% end %>
+
+                        <div style="display: flex; justify-content: center; align-items: center">
+                            <%= link_to 'Cancel', root_path, class: 'btn btn-danger' %>
+                            <%= form.submit 'Book Flight', class: 'btn btn-info' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            
+            <br><br>
+            <div class="mb-3" style="display: flex; justify-content: center; align-items: center">
+                <%= link_to "Search your flight here!", root_path, class: "btn btn-dark" %>
+            </div>
+        </div>
+    </div>
+</div>

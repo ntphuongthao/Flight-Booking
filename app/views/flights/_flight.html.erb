@@ -1,0 +1,25 @@
+<table class="table table-bordered table-light">
+  <thead class="thead-dark">
+    <tr>
+      <th>Flight #</th>
+      <th>Departs</th>
+      <th>Arrives</th>
+      <th>Date</th>
+      <th>Departure</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% flights.each do |flight| %>
+        <tr>
+            <td>#<%= flight.id %></td>
+            <td><%= flight.departure.name %></td>
+            <td><%= flight.arrival.name %></td>
+            <td><%= flight.date.strftime("%d-%m-%Y") %></td>
+            <td><%= flight.time %></td>
+            <td><%= flight.duration %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

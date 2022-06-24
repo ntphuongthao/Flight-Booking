@@ -9,7 +9,7 @@
   <%= form.select :arrival_id, @airports, { include_blank: true, prompt: "Arrival" } %>
   <%= form.select :passengers, (1..5), { include_blank: true, prompt: "Passengers" } %>
   <%= form.date_field :date %>
-  <%= form.button "Submit", class: 'btn btn-secondary' %>
+  <%= form.button "Submit", class: 'btn btn-dark' %>
 <% end %>
 
 

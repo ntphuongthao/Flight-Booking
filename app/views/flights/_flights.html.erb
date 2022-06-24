@@ -24,7 +24,13 @@
                         <td><%= flight.date.strftime("%d-%m-%Y")  %></td>
                         <td><%= flight.time %></td>
                         <td><%= flight.duration %></td>
-                        <td></td>
+                        <td><%= button_to 'Book this flight',
+                                new_booking_path,
+                                method: :get,
+                                params: { flight_id: flight.id, passengers: params[:flight][:passengers] },
+                                id: 'booking-button',
+                                class: 'btn btn-outline-dark' %>
+                        </td>
                     </tr>
                 <% end %>
             </tbody>
