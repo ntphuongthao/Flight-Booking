@@ -6,7 +6,11 @@ class FlightsController < ApplicationController
   private
 
   def flight_params
-    params.require(:flight).permit(:departure_id, :arrival_id, :date)
+    if params[:flight]
+      params.require(:flight).permit(:departure_id, :arrival_id, :date)
+    else
+      {departure_id: 71, arrival_id: 75, date: Time.now}
+    end
   end
 
   def passengers

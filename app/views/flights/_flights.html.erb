@@ -1,0 +1,29 @@
+<% if flights.length > 0 %>
+
+    <h4><%= pluralize(flights.length, 'flight') %> matched your search!</h4>
+    <div class="container mt-4" style="display:flex; justify-content:center; align-items:center">
+        <table class="table table-bordered table-light table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>Flight Number</th>
+                <th>Departure Airport ID</th>
+                <th>Arrival Airport ID</th>
+                <th>Date</th>
+                <th>Duration (minutes)</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                <% flights.each do |flight| %>
+                    <tr>
+                        <td><%= flight.id %></td>
+                        <td><%= flight.departure_id %></td>
+                        <td><%= flight.arrival_id %></td>
+                        <td><%= flight.date %></td>
+                        <td><%= flight.duration %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+<% end %>

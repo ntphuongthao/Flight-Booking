@@ -1,14 +1,14 @@
-<div class="container text-center mt-4">
-  <h3>Search for flights</h3>
 
-  <%= form_with model: Flight.new, url: flights_path, method: 'get' do |form| %>
-    <% @airports = Airport.pluck(:name, :id) %>
+<h1>Search for flights</h1>
+
+<%= form_with model: Flight.new, url: flights_path, method: 'get' do |form| %>
+  <% @airports = Airport.pluck(:name, :id) %>
     
-    <%= form.select :departure_id, @airports, { include_blank: true, prompt: "Departure" } %>
-    <%= form.select :arrival_id, @airports, { include_blank: true, prompt: "Arrival" } %>
-    <%= form.select :passengers, (1..5), { include_blank: true, prompt: "Passengers" } %>
-    <%= form.date_field :date %>
-    <%= form.button "Submit", class: 'btn btn-secondary' %>
-  <% end %>
-</div> 
+  <%= form.select :departure_id, @airports, { include_blank: true, prompt: "Departure" } %>
+  <%= form.select :arrival_id, @airports, { include_blank: true, prompt: "Arrival" } %>
+  <%= form.select :passengers, (1..5), { include_blank: true, prompt: "Passengers" } %>
+  <%= form.date_field :date %>
+  <%= form.button "Submit", class: 'btn btn-secondary' %>
+<% end %>
+
 
