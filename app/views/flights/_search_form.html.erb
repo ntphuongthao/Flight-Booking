@@ -1,0 +1,14 @@
+<div class="container text-center mt-4">
+  <h3>Search for flights</h3>
+
+  <%= form_with model: @flight, url: flights_path, method: 'post' do |form| %>
+    <% @airports = Airport.all.map { |airport| airport.name } %>
+    
+    <%= form.select :departure, @airports %>
+    <%= form.select :arrival, @airports %>
+    <%= form.select :day, (1..31) %>
+    <%= form.select :month, (1..12) %>
+    <%= form.select :year, [2022] %>
+    <%= form.button "Submit", class: 'btn btn-secondary' %>
+  <% end %>
+</div>
