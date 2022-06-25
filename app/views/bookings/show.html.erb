@@ -1,10 +1,11 @@
-<% @booking = Booking.find(params[:id].to_i) %>
-<%= render 'flights/flight', flight: @booking.flight %>
-<h3 >Confirmation Number: <%= @booking.confirmation %></h3>
+<div class="container mt-4">
+    <% @booking = Booking.find(params[:id].to_i) %>
+    <%= render 'flights/flight', flight: @booking.flight %>
+    <h3 >Confirmation Number: <%= @booking.confirmation %></h3>
 
-<div>
-    <% @booking.passengers.each do |passenger| %>
-        <p><%= passenger.name %></p>
-        <p><%= passenger.email %></p>
-    <% end %>
+    <div>
+        <% @booking.passengers.each do |passenger| %>
+            <%= render 'boarding_pass', flight: @booking.flight %>
+        <% end %>
+    </div>
 </div>
