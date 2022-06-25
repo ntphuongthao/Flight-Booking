@@ -11,15 +11,13 @@
   </thead>
 
   <tbody>
-    <% flights.each do |flight| %>
-        <tr>
-            <td>#<%= flight.id %></td>
-            <td><%= flight.departure.name %></td>
-            <td><%= flight.arrival.name %></td>
-            <td><%= flight.date.strftime("%d-%m-%Y") %></td>
-            <td><%= flight.time %></td>
-            <td><%= flight.duration %></td>
-        </tr>
-    <% end %>
+      <tr>
+          <td>#<%= flight.id %></td>
+          <td><%= flight.departure.name %></td>
+          <td><%= flight.arrival.name %></td>
+          <td><%= flight.date.strftime("%d-%m-%Y") %></td>
+          <td><%= flight.time %></td>
+          <td><%= flight.duration %></td>
+      </tr>
   </tbody>
 </table>
