@@ -1,16 +1,15 @@
-body{
-	margin: 0;
-	padding: 0;
-	background: #fff;
-  }
-  
-  .box{
+.ticket-container {
+	position: relative;
+	height: 400px;
+}
+
+.box{
 	position: absolute;
 	top: calc(50% - 125px);
 	top: -webkit-calc(50% - 125px);
 	left: calc(50% - 300px);
 	left: -webkit-calc(50% - 300px);
-  }
+}
   
   .ticket{
 	width: 600px;
