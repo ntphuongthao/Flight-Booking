@@ -1,43 +1,47 @@
 <div class="container w-75">
   <div class="row justify-content-center">
         <div class="col-10">
-            <br><h2>Your Selected Flight:</h2>
-            <%= render 'flights/flight', flight: @flight %>
 
-            <br><h3 style="text-align: center">Please Enter Your Information below: </h3><br>
-            <div class="container w-75">
-                <div class="row justify-content-center">
-                    <%= form_with model: @booking do |form| %>
-                        <%= form.hidden_field :flight_id, value: params[:flight_id].to_i%>
-                        <%= form.hidden_field :tickets, value: params[:passengers].to_i%>
+            <% if params[:passengers].empty? %>
+                <br>
+                <h2 style="text-align: center;">You must select the number of passengers!</h2>
+            <% else %>
+                <br><h2>Your Selected Flight:</h2>
+                <%= render 'flights/flight', flight: @flight %>
 
-                        <%= form.fields_for :passengers do |passengers_form| %>
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Passenger:</h5>
-                                    <div class="form-group">
-                                        <%= passengers_form.text_field :name, placeholder: 'Passenger Name', class: 'form-control mb-2' %>
-                                        <%= passengers_form.text_field :email, placeholder: 'Passenger Email', class: 'form-control' %>
+                <br><h3 style="text-align: center">Please Enter Your Information below: </h3><br>
+                <div class="container w-75">
+                    <div class="row justify-content-center">
+                        <%= form_with model: @booking do |form| %>
+                            <%= form.hidden_field :flight_id, value: params[:flight_id].to_i%>
+                            <%= form.hidden_field :tickets, value: params[:passengers].to_i%>
+
+                            <%= form.fields_for :passengers do |passengers_form| %>
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Passenger:</h5>
+                                        <div class="form-group">
+                                            <%= passengers_form.text_field :name, placeholder: 'Passenger Name', class: 'form-control mb-2' %>
+                                            <%= passengers_form.text_field :email, placeholder: 'Passenger Email', class: 'form-control' %>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <br>
+                            <% end %>
                             <br>
-                        <% end %>
-                        <br>
 
-                        <div style="display: flex; justify-content: center; align-items: center">
-                            <%= link_to 'Cancel', root_path, class: 'btn btn-danger mr-2' %>
-                            <%= form.submit 'Book Flight', class: 'btn btn-info' %>
-                        </div>
-                    <% end %>
+                            <div style="display: flex; justify-content: center; align-items: center">
+                                <%= link_to 'Cancel', root_path, class: 'btn btn-danger mr-2' %>
+                                <%= form.submit 'Book Flight', class: 'btn btn-info' %>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
-                <br><br>
-                <div class="mb-3" style="display: flex; justify-content: center; align-items: center">
-                    <%= link_to "Search your flight here!", root_path, class: "btn btn-dark" %>
-                </div>
+            <% end %>    
+            <br><br>
+            <div class="mb-3" style="display: flex; justify-content: center; align-items: center">
+                <%= link_to "Search your flight here!", root_path, class: "btn btn-dark" %>
             </div>
-            
-            
         </div>
     </div>
 </div>

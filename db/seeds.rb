@@ -40,7 +40,7 @@ ActiveRecord::Base.transaction do
       airports.each do |arrival|
         next if departure == arrival
 
-        10.times { Flight.create!(date: date,
+        rand(0..20).times { Flight.create!(date: date,
                                 time: random_time,
                                 departure: departure,
                                 arrival: arrival,

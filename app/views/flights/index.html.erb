@@ -1,5 +1,11 @@
 <div class="container text-center mt-4">
     <%= render 'search_form' %>
     <br>
-    <%= render 'flights', flights: @flights %>
+    <% if params[:flight] %>
+        <% if @flights.length != 0 %>
+            <%= render 'flights', flights: @flights %>
+        <% else %>
+            <h3>There is no flights on <%= params[:flight][:date] %>!</h3>
+        <% end %>
+    <% end %>
 </div>

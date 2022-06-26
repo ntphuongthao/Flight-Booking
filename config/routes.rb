@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   get 'about', to: 'application#about'
 
   resources :flights
-  resources :bookings, except: [:destroy]
+  resources :bookings, except: [:destroy, :index]
   resources :passengers, except: [:destroy, :index]
 end
