@@ -1,0 +1,18 @@
+Odin Air
+
+Thank you for booking Flight <%= @booking.flight.id %> with Thao's Airport! Please review your trip details below.
+
+Confirmation Code: <%= @booking.confirmation %>
+Please visit <%= @url %> to view your booking.
+
+Flight #:  <%= @booking.flight.id %>
+Departs:   <%= @booking.flight.departure.name %>
+Arrives:   <%= @booking.flight.arrival.name %>
+Date:      <%= @booking.flight.date.strftime("%Y-%m-%d") %>
+Departure:<%= @booking.flight.time %>
+Duration:  <%= @booking.flight.duration %>
+
+Passengers:
+<% @booking.passengers.each do |passenger| %>
+  <%= passenger.name %>
+<% end %>

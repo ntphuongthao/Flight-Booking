@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
       for key, value in passengers_attributes do
         @booking.passengers << Passenger.create(name: value[:name], email: value[:email])
       end
+      PassengerMailer.with(booking_id: @booking.id).thank_you.deliver_later
       redirect_to @booking
     else
       render 'new'

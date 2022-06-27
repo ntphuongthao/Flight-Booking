@@ -1,0 +1,41 @@
+
+<h2>Thao Nguyen Air</h2>
+<h4>
+  Thank you for booking Flight #<%= @booking.flight.id %> with Thao's Airport! Please review your trip details below.
+</h4>
+
+<h4>
+  Confirmation Code: <strong><%= @booking.confirmation %></strong> | 
+  <%= link_to 'View Booking', @url, class: "btn btn-info" %>
+</h4>
+
+<table class="table table-bordered table-light table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Flight #</th>
+      <th>Departs</th>
+      <th>Arrives</th>
+      <th>Date</th>
+      <th>Departure</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @booking.flight.id %></td>
+      <td><%= @booking.flight.departure.name %></td>
+      <td><%= @booking.flight.arrival.name %></td>
+      <td><%= @booking.flight.date.strftime("%Y-%m-%d") %></td>
+      <td><%= @booking.flight.time %></td>
+      <td><%= @booking.flight.duration %></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Passengers:
+<ul>
+  <% @booking.passengers.each do |passenger| %>
+    <li><%= passenger.name %></li>
+  <% end %>
+</ul>
